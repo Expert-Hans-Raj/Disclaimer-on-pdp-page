@@ -1,0 +1,35 @@
+<!-- Disclaimer -->
+{% if section.settings.enable_disclaimer %}
+<div class="form-field disclaimer_opt" data-product-attribute="input-checkbox">
+  {% if section.settings.disclaimer_heading != blank %}
+	<label class="form-label form-label--alternate form-label--inlineSmall"> {{ section.settings.disclaimer_heading }} <small>
+    *
+</small> </label>
+  {% endif %}
+  {% if section.settings.disclaimer_info != blank %}
+	<div class="form-input-box">
+		<input type="hidden" name="attribute[7188]" value="3843">
+		<input class="form-checkbox" type="checkbox" name="attribute[7188]" id="attribute-check-7188" value="3842" required="">
+		<label class="form-label " for="attribute-check-7188">{{ section.settings.disclaimer_info }}</label>
+	</div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Disclaimer -->
+
+<script>
+/* Disclaimer */ 
+ $(document).ready(function() {
+    $('body').on('click', '[name="checkout"], [name="goto_pp"], [name="goto_gc"]', function() {
+      if ($('#agree').is(':checked')) {
+        $(this).submit();
+      }
+      else {
+        alert("You must agree with the terms and conditions of sales to check out.");
+        return false;
+      }
+    });
+  });
+/* Disclaimer */ 
+</script>
